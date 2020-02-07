@@ -1,6 +1,7 @@
 ## Requirements
 
-Buildings should be grouped by Building Zone
+### Buildings should be grouped by Building Zone
+
 Building Zone should be sorted alphabetically, except for "Other", which should display last
 Building Name should be sorted alphabetically
 Non Black (black=0) buildings should link to https://applefacilities.review.blueriver.com
