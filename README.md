@@ -1,12 +1,16 @@
 ## Requirements
 
-### Buildings should be grouped by Building Zone
+#### Buildings should be grouped by Building Zone
 
-Building Zone should be sorted alphabetically, except for "Other", which should display last
-Building Name should be sorted alphabetically
-Non Black (black=0) buildings should link to https://applefacilities.review.blueriver.com
-Black (black=1) buildings should have no link
-Note: only "Active" buildings are returned from API
+#### Building Zone should be sorted alphabetically, except for "Other", which should display last
+
+#### Building Name should be sorted alphabetically
+
+#### Non Black (black=0) buildings should link to https://applefacilities.review.blueriver.com
+
+#### Black (black=1) buildings should have no link
+
+#### Note: only "Active" buildings are returned from API
 
 ## Available Scripts
 
