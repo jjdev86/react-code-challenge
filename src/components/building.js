@@ -21,7 +21,7 @@ const Building = ({ bld }) => {
   if (bld.black === 0) {
     return (
       <li key={bld.buildingid}>
-        <a href="https://applefacilities.review.blueriver.com">
+        <a href="#">
           {bld.buildingname}
         </a>
       </li>
