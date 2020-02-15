@@ -1,15 +1,16 @@
 import React from "react";
 
-const BuildingZone = props => {
-  const listOfBuildings = props.data.buildings.map(building => (
+const BuildingZone = ({data}) => {
+  const zone = data.buildingzone;
+  const listOfBuildings = data[zone].map(building => (
     <Building key={building.buildingid} bld={building} />
   ));
 
   return (
     <div className="a-building-container">
-      <h3>{props.data.buildingname}</h3>
+      <h3>{data.buildingzone}</h3>
       <div className="a-building-name">
-        <ul key={props.data.buildingname} className="a-building">
+        <ul key={data.buildingname} className="a-building">
           {listOfBuildings}
         </ul>
       </div>
@@ -20,7 +21,7 @@ const BuildingZone = props => {
 const Building = ({ bld }) => {
   if (bld.black === 0) {
     return (
-      <li key={bld.buildingid}>
+      <li>
         <a href="#">
           {bld.buildingname}
         </a>
