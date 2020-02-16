@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import BuildingZone from "./components/buildingZone.js";
-
+import Googlemap from './components/googleMaps.js';
 const App = () => {
   // const [rawData, setRaw] = useState([]);
   const [rawData, setRaw] = useState([]);
   const [sortedData, setSortData] = useState([]);
+
+  const [mapOption, setMapOption] = useState({});
+  const [links, setLinkns] = useState([]);
 
   // using with localhost
   useEffect(() => {
@@ -87,18 +90,38 @@ const App = () => {
     return buildingGroupsOrderedAsc;
   };
 
+  const addMarkers = links => map => {
+    links.forEach((link, index) => {
+      const marker = new window.google.maps.Marker({
+        map,
+        position: link.coords,
+        label: `${index + 1}`,
+        title: link.title,
+      })
+      marker.addListener(`click`, () => {
+        window.location.href = link.url
+      })
+    })
+  }
+
+  const mapProps = {
+    options: mapOption,
+    onMount: addMarkers, 
+    onMountProps: links 
+  };
+
   return (
     <div className="container">
       <div className="googleMap">
-        <h1>Google Map goes here</h1>
-        {/* <Googlemaps /> */}
+        <Googlemap {...mapProps}/>
+        <button onClick={() => setLinkns([])}>Reset map</button>
       </div>
       <h1>Index</h1>
       <hr></hr>
       {sortedData.length > 0 &&
         sortedData.map((buildingzone, index) => (
           <React.Fragment key={index}>
-            <BuildingZone data={buildingzone} />
+            <BuildingZone data={buildingzone} setMap={setMapOption} setLinks={setLinkns} links={links}/>
             <hr></hr>
           </React.Fragment>
         ))}

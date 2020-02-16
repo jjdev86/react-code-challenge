@@ -1,3 +1,9 @@
+#map {
+  height: 400px; 
+  width: 100%; 
+  border: 1px solid black;
+}
+
 .container {
   margin: 150px auto;
   max-width: 1200px;
